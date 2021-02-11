@@ -26,6 +26,7 @@ public class CardTrick {
             String suit = Card.SUITS[random.nextInt(4)]; // random suit generator
             
             Card  c      = new Card(suit, value); 
+                Card luckyCard = new Card("Hearts", 7); 
             hand [i]     = c; 
         }
          
@@ -50,17 +51,11 @@ public class CardTrick {
                 break; 
             }
         }
-        //insert code to ask the user for Card value and suit, create their card
-        // and search magicHand here
-        //Then report the result here
+
         String response = match ? "Right guess": "No match";
         System.out.println(response);
     }
     
 }
 
-//        System.out.println("Here are the cards in the hand");
-//        for (Card c : hand)
-//        {
-//            System.out.printf("%d of %s\n", c.getSuit(), c.getValue());
-//        }
+        
