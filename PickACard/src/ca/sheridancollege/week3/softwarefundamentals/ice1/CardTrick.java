@@ -2,14 +2,13 @@
         Modifier: Nadin Azraq 
 */
 package ca.sheridancollege.week3.softwarefundamentals.ice1;
-import java.util.Random;
 import java.util.Scanner;
 
 /**
  * A class that fills a magic hand of 7 cards with random Card Objects
  * and then asks the user to pick a card and searches the array of cards
  * for the match to the user's card. To be used as starting code in ICE 1
- * @author dancye
+ * @author Nadin Azraq
  */
 public class CardTrick {
     
@@ -18,16 +17,10 @@ public class CardTrick {
         Scanner input    = new Scanner(System.in);
         Card[] magicHand = new Card[7];
         
-        Random random    = new Random(); //this is used to generate random numbers
-        
         for (int i=0; i<magicHand.length; i++)
-        {
-            int value   = random.nextInt(13) + 1;  // call to random number generator
-            String suit = Card.SUITS[random.nextInt(4)]; // random suit generator
-            
-            Card  c      = new Card(suit, value); 
-                Card luckyCard = new Card("Hearts", 7); 
-            hand [i]     = c; 
+        { 
+            Card luckyCard = new Card("Hearts", 7); 
+            magicHand [i]  = luckyCard; 
         }
          
         System.out.println("Pick a suit for your card");
@@ -43,7 +36,7 @@ public class CardTrick {
         Card userGuess = new Card(Card.SUITS[suit -1], value);
         
         boolean match = false; 
-        for (Card c : hand)
+        for (Card c : magicHand)
         {
             if (c.getValue() == userGuess.getValue() && c.getSuit().equals(userGuess.getSuit()))
             {
@@ -52,7 +45,7 @@ public class CardTrick {
             }
         }
 
-        String response = match ? "Right guess": "No match";
+        String response = match ? "You Guessed right": "You guessed wrong";
         System.out.println(response);
     }
     
